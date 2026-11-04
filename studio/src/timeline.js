@@ -225,7 +225,7 @@ export const SHOTS = [
 
 // cut list: transition between SHOTS[i] and SHOTS[i+1]
 export const CUTS = [
-  { at: 3.0, dur: 0.6, type: 'light' },
+  { at: 3.0, dur: 0.0, type: 'cut' },
   { at: 6.0, dur: 0.30, type: 'whip', dir: [1, 0] },
   { at: 8.0, dur: 0.3, type: 'whip', dir: [-1, 0] },
   { at: 10.0, dur: 0.24, type: 'whip', dir: [0, 1] },
@@ -235,18 +235,19 @@ export const CUTS = [
   { at: 12.8, dur: 0.2, type: 'whip', dir: [1, 0] },
   { at: 13.5, dur: 0.0, type: 'cut' },
   { at: 14.2, dur: 0.0, type: 'cut' },
-  { at: 15.0, dur: 0.7, type: 'light' },
+  { at: 15.0, dur: 0.0, type: 'cut' },
 ];
 
 // global look over time: fades, flashes on the beats, exposure
 export function lookAt(t) {
   let flash = 0;
   for (const c of [10.7, 12.1, 13.5, 14.2]) flash += 0.06 * Math.exp(-Math.max(0, t - c) * 14) * (t >= c ? 1 : 0);
-  flash += 0.05 * pulse(t, 3.0, 0.12) + 0.06 * pulse(t, 15.0, 0.15) + 0.04 * pulse(t, 8.0, 0.1);
+  flash += 0.0 + 0.04 * pulse(t, 8.0, 0.1);
   const fadeIn = 1 - smooth(seg(t, 0.0, 0.7));
   const fadeOut = smooth(seg(t, 19.55, 20.0));
   return {
-    exposure: 1.3, bloom: 0.085, bloomThreshold: 0.85, streak: 0.07, ca: 0.0055, vignette: 0.6, grain: 0.03,
+    // light-burst cuts: exposure surges into bloom, hard cut on the peak, settle out of the light
+    exposure: 1.3 * (1 + 2.6 * pulse(t, 3.0, 0.11) + 3.0 * pulse(t, 15.0, 0.12)), bloom: 0.085, bloomThreshold: 0.85, streak: 0.07, ca: 0.0055, vignette: 0.6, grain: 0.03,
     fade: Math.max(fadeIn, fadeOut), flash: [flash, flash * 0.75, flash * 0.48],
   };
 }
