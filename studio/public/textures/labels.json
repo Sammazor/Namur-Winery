@@ -1,0 +1,20 @@
+{
+  "hillel": {
+    "width": 2365,
+    "height": 2013,
+    "theta_max_deg": 100,
+    "aspect_h_over_arc": 0.8505634525061557
+  },
+  "haroeh": {
+    "width": 2586,
+    "height": 2543,
+    "theta_max_deg": 100,
+    "aspect_h_over_arc": 0.9831522759903396
+  },
+  "ivri": {
+    "width": 2680,
+    "height": 2322,
+    "theta_max_deg": 100,
+    "aspect_h_over_arc": 0.8661510418579241
+  }
+}

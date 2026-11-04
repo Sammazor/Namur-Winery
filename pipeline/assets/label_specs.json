@@ -1,0 +1,270 @@
+{
+ "_doc": "Geometry of each label in its ORIGINAL product photo. Sampling: x = xc + R*sin(th); y = ys(v) + b(v)*cos(th) + tilt(v)*sin(th). ys/xc/R interpolate top->bottom; b (perspective sag) and tilt (roll) are piecewise-linear control points over label height v (0=top,1=bottom). Glyph rects: [x0,x1,v0,v1] with x = theta/theta_photo in [-1,1]. kind: gold (hot foil -> metallic), light / dark (printed ink).",
+ "haroeh": {
+  "photo": "reference/originals/haroeh.jpg",
+  "theta_photo": 66,
+  "theta_max": 100,
+  "upscale": 3.0,
+  "top": {
+   "ys": 1231,
+   "xc": 916,
+   "R": 247
+  },
+  "bottom": {
+   "ys": 2077,
+   "xc": 916,
+   "R": 247
+  },
+  "ctrl": [
+   {
+    "v": 0,
+    "b": 24,
+    "tilt": 6
+   },
+   {
+    "v": 0.3,
+    "b": 8,
+    "tilt": 3
+   },
+   {
+    "v": 0.7,
+    "b": 22,
+    "tilt": 4
+   },
+   {
+    "v": 1,
+    "b": 45,
+    "tilt": 5
+   }
+  ],
+  "flat_rows": [
+   [
+    0.0,
+    0.25
+   ],
+   [
+    0.72,
+    0.98
+   ]
+  ],
+  "glyphs": [
+   {
+    "kind": "gold",
+    "rect": [
+     -0.62,
+     0.62,
+     0.03,
+     0.29
+    ],
+    "logo_bbox": [
+     [
+      -0.4165,
+      0.488,
+      0.1054,
+      0.2418
+     ],
+     [
+      -0.4083,
+      0.4868,
+      0.2619,
+      0.2839
+     ]
+    ]
+   },
+   {
+    "kind": "light",
+    "rect": [
+     -1.0,
+     1.0,
+     0.72,
+     0.97
+    ]
+   }
+  ],
+  "foil_bgr": [
+   0.38,
+   0.62,
+   0.87
+  ],
+  "paper_roughness": 0.78,
+  "foil_roughness": 0.3,
+  "bump_gain": 1.2,
+  "crop": [
+   0,
+   0.978
+  ],
+  "fill_bottom": [
+   0.968,
+   0.76,
+   0.966
+  ],
+  "side_flat_rows": [
+   [
+    0.72,
+    1.0
+   ],
+   [
+    0.0,
+    0.29
+   ]
+  ]
+ },
+ "hillel": {
+  "photo": "reference/originals/hillel.jpg",
+  "theta_photo": 66,
+  "theta_max": 100,
+  "upscale": 3.0,
+  "top": {
+   "ys": 1302,
+   "xc": 976,
+   "R": 226
+  },
+  "bottom": {
+   "ys": 1945,
+   "xc": 975,
+   "R": 223
+  },
+  "ctrl": [
+   {
+    "v": 0,
+    "b": 22,
+    "tilt": 2
+   },
+   {
+    "v": 1,
+    "b": 50,
+    "tilt": 0
+   }
+  ],
+  "flat_rows": [
+   [
+    0.0,
+    1.0
+   ]
+  ],
+  "glyphs": [
+   {
+    "kind": "gold",
+    "rect": [
+     -0.7,
+     0.7,
+     0.12,
+     0.53
+    ],
+    "logo_out": [
+     -0.56,
+     0.56,
+     0.205,
+     0.47
+    ]
+   },
+   {
+    "kind": "gold",
+    "rect": [
+     -0.38,
+     0.4,
+     0.6,
+     0.9
+    ]
+   }
+  ],
+  "foil_bgr": [
+   0.42,
+   0.7,
+   0.88
+  ],
+  "paper_roughness": 0.62,
+  "foil_roughness": 0.26,
+  "bump_gain": 3.0,
+  "side_flat_rows": []
+ },
+ "ivri": {
+  "photo": "reference/originals/ivri.jpg",
+  "theta_photo": 66,
+  "theta_max": 100,
+  "upscale": 3.0,
+  "top": {
+   "ys": 1271,
+   "xc": 963,
+   "R": 256
+  },
+  "bottom": {
+   "ys": 1972,
+   "xc": 961,
+   "R": 255
+  },
+  "ctrl": [
+   {
+    "v": 0,
+    "b": 20,
+    "tilt": 0.3
+   },
+   {
+    "v": 1,
+    "b": 93,
+    "tilt": -2.6
+   }
+  ],
+  "flat_rows": [
+   [
+    0.0,
+    0.25
+   ],
+   [
+    0.8,
+    1.0
+   ]
+  ],
+  "glyphs": [
+   {
+    "kind": "gold",
+    "rect": [
+     -0.56,
+     0.56,
+     0.04,
+     0.29
+    ],
+    "logo_bbox": "auto"
+   },
+   {
+    "kind": "dark",
+    "rect": [
+     -0.44,
+     0.44,
+     0.67,
+     0.79
+    ],
+    "thr": 0.5,
+    "min_area": 60,
+    "halo": 1
+   },
+   {
+    "kind": "light",
+    "rect": [
+     -0.82,
+     0.82,
+     0.82,
+     0.99
+    ]
+   }
+  ],
+  "foil_bgr": [
+   0.4,
+   0.66,
+   0.88
+  ],
+  "paper_roughness": 0.75,
+  "foil_roughness": 0.3,
+  "bump_gain": 1.2,
+  "side_flat_rows": [
+   [
+    0.8,
+    1.0
+   ],
+   [
+    0.0,
+    0.29
+   ]
+  ]
+ }
+}
