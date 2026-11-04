@@ -17,7 +17,7 @@ fi
 ffmpeg -hide_banner -loglevel warning -y \
   -framerate "$FPS" -i "$FRAMES/f_%04d.png" -i "$AUDIO" \
   -map 0:v -map 1:a \
-  -vf "$VF" -c:v libx264 -preset slow -crf 14 -profile:v high -tune film \
+  -vf "$VF" -c:v libx264 -preset ${PRESET:-medium} -threads 2 -crf ${CRF:-19} -profile:v high -tune film \
   -x264-params "keyint=$((FPS*2)):min-keyint=$FPS:aq-mode=3" \
   -color_primaries bt709 -color_trc bt709 -colorspace bt709 \
   -af "loudnorm=I=-14:TP=-1.0:LRA=7" -c:a aac -b:a 320k -ar 48000 \
