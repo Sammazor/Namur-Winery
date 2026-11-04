@@ -1,0 +1,24 @@
+{
+  "name": "namura-wine-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "NAMURA Wine Studio - cinematic 9:16 product film pipeline (Three.js + headless Chromium + FFmpeg)",
+  "scripts": {
+    "labels": ".venv/bin/python pipeline/assets/extract_labels.py",
+    "audio": ".venv/bin/python pipeline/audio/score.py",
+    "dev": "vite studio --host",
+    "build": "vite build studio",
+    "render": "node pipeline/render/render.mjs",
+    "encode": "bash pipeline/render/encode.sh"
+  },
+  "dependencies": {
+    "@fontsource/bellefair": "^5.3.0",
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/frank-ruhl-libre": "^5.3.0",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.21"
+  }
+}

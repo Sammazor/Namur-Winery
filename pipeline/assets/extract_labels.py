@@ -276,6 +276,12 @@ def main():
             dbg = (img * 255).astype(np.uint8).copy()
             for yy in range(0, H, 60): cv2.line(dbg, (0, yy), (Wt, yy), (0, 255, 255), 1)
             cv2.imwrite(f'{DBG}/{name}_grid.jpg', cv2.resize(dbg, None, fx=0.35, fy=0.35, interpolation=cv2.INTER_AREA))
+    # Clean NAMURA foil mark (from the HILLEL label) for the end card, as a white alpha mask.
+    lm = LOGO_CACHE['mask']; ys, xs = np.where(lm > 0.02); pad = 24
+    crop = lm[max(ys.min() - pad, 0):ys.max() + pad, max(xs.min() - pad, 0):xs.max() + pad]
+    rgba = np.dstack([np.ones_like(crop)] * 3 + [crop])
+    cv2.imwrite(f'{OUT}/namura_logo.png', (rgba * 255).astype(np.uint8))
+    meta['logo'] = {'width': crop.shape[1], 'height': crop.shape[0]}
     json.dump(meta, open(f'{OUT}/labels.json', 'w'), indent=2)
 
 

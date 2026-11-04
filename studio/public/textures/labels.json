@@ -16,5 +16,9 @@
     "height": 2322,
     "theta_max_deg": 100,
     "aspect_h_over_arc": 0.8661510418579241
+  },
+  "logo": {
+    "width": 718,
+    "height": 390
   }
 }
